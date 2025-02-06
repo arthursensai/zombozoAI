@@ -1,0 +1,1 @@
+Tabrmajet team proud to start zombozoAI to help people learn languages using AI

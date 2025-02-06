@@ -1,0 +1,20 @@
+{
+  "name": "zombozo-api",
+  "version": "1.0.0",
+  "description": "this directory made for Naser and Arthur to make the required api for the zombozoAI",
+  "license": "ISC",
+  "author": "Tabrmajet Team",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "firebase-admin": "^13.0.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.10.0"
+  }
+}
