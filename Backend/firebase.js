@@ -1,14 +1,21 @@
-import { initializeApp } from "firebase/app";
+const admin = require('firebase-admin');
 
-require('dotenv').config();
+const createUser = async(obj) => {
+  try {
+    let { email, password, username } = obj;
+    const userResponse = await admin.auth().createUser({
+      email: email,
+      password: password,
+      username: username,
+      emailVerified: false,
+      disabled: false
+    });
+    return { status: 200, userUID: userResponse.uid }
+  } catch (error) {
+    return { status: 500, message: error.message };
+  }
+}
 
-const firebaseConfig = {
-  apiKey: process.env.FIREBASE_APIKEY,
-  authDomain: process.env.FIREBASE_AUTHDOMAIN,
-  projectId: process.env.FIREBASE_PROJECTID,
-  storageBucket: process.env.FIREBASE_STORAGEBUCKET,
-  messagingSenderId: process.env.FIREBASE_MESSAGINSENDERID,
-  appId: process.env.FIREBASE_APPID
-};
-
-const app = initializeApp(firebaseConfig);
+module.exports = {
+  createUser
+}
