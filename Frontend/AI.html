@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talk with AI</title>
+</head>
+<body>
+    <form id="question_form">
+        <label for="user_question">Question</label>
+        <input id="user_question" name="question" required>
+        <button type="submit">Submit</button>
+    </form>
+    
+    <h3>AI Response:</h3>
+    <div id="ai_response"></div>
+
+    <script>
+        document.getElementById("question_form").addEventListener("submit", async function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const formData = {
+                question: document.getElementById("user_question").value,
+            };
+
+            // Show loading state
+            document.getElementById("ai_response").textContent = "Loading...";
+
+            try {
+                const response = await fetch("http://localhost:5000/ask", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const data = await response.json();
+
+                if (data.response) {
+                    document.getElementById("ai_response").textContent = data.response;
+                } else {
+                    document.getElementById("ai_response").textContent = "No response from AI.";
+                }
+
+            } catch (error) {
+                document.getElementById("ai_response").textContent = "Error fetching response.";
+                console.error("Error:", error);
+            }
+        });
+    </script>
+</body>
+</html>

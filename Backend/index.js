@@ -3,9 +3,10 @@ const admin = require('firebase-admin');
 const cors = require('cors');
 const credential = require('./firebase-admin.json');
 const app = express();
-const { createUser } = require('./firebase');
+const { signUp } = require('./firebase');
 const { addUser } = require('./mongodb');
-const { default: mongoose } = require('mongoose');
+const { mongoose } = require('mongoose');
+const { getTeacherResponse } = require('./huggingFace');
 
 //load .env 
 require('dotenv').config();
@@ -26,7 +27,7 @@ app.post('/signup', async (req, res) => {
       const { username, email, password } = req.body;
       
       // First try Firebase
-      const firebaseResponse = await createUser({ email, password, username });
+      const firebaseResponse = await signUp({ email, password, username });
       
       // Check Firebase result
       if (firebaseResponse.status === 500) {
@@ -54,6 +55,24 @@ app.post('/signup', async (req, res) => {
 
 app.get('/', (req, res) => {
     res.status(200).send('ZombozoAI is working');
+});
+
+//AI route
+app.post('/ask', async (req, res) => {
+  try {
+    const { question } = req.body;
+    
+    if (!question) {
+      return res.status(400).json({ error: 'Question is required' });
+    }
+
+    const answer = await getTeacherResponse(question);
+    res.json({ response: answer });
+
+  } catch (error) {
+    console.error('Server Error:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
 });
 
 //make sure to connect to mongodb before starting the server
