@@ -1,0 +1,105 @@
+:root {
+    --primary-color: #00ff90; /* Glowing AI accent color */
+    --secondary-color: #00b870; /* Slightly darker shade for hover effects */
+    --background-color: #121212; /* Dark background */
+    --card-background-color: #1a1a1a; /* Slightly lighter dark color for cards */
+    --text-color: #ffffff; /* White text for contrast */
+    --muted-text-color: #aaa; /* Lighter color for footer or less important text */
+    --font-family: 'Arial', sans-serif; /* Basic sans-serif font */
+    --border-radius: 10px; /* Rounded corners */
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Basic shadow effect */
+    --hover-shadow: 0 4px 8px rgba(0, 255, 144, 0.8); /* Glowing shadow for hover */
+    --transition-speed: 0.3s; /* Transition time for hover effects */
+    --max-width: 1200px; /* Max width for large screens */
+    --spacing-unit: 1rem; /* Base spacing unit for margins/paddings */
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: robots;
+    background-color: var(--background-color);
+}
+
+header {
+    width: 60%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    justify-self: center;
+    margin: 1.5% 0;
+    padding: 1.5%;
+    border-radius: 25PX;
+    background-color: var(--card-background-color);
+    box-shadow: 0px 0px 3px rgba(255, 255, 255, 1);
+    transition: 0.4s all linear;
+}
+
+header:hover {
+    box-shadow: var(--hover-shadow);
+}
+
+header h1 {
+    font-size: 36px;
+    text-shadow: -5px -5px 0px 20px rgba(255, 255, 255, 1);
+    color: var(--text-color);
+}
+
+header > nav > a {
+    text-decoration: none;
+    font-size: 20px;
+    color: var(--text-color);
+    transition: 0.4s all linear;
+    position: relative;
+}
+
+header > nav > a:hover {
+    text-decoration: none;
+}
+
+header > nav > a::after {
+    position: absolute;
+    content: '';
+    width: 0%;
+    margin-top: 2px;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--secondary-color);
+    transition: 0.7s all ease-in-out;
+}
+
+header > nav > a:hover::after {
+    width: 100%;
+}
+
+main {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.face {
+    width: 60%;
+    height: 60%;
+    background-color: var(--card-background-color);
+}
+
+/* font */
+
+@font-face {
+    font-family: robots;
+    src: url('../assets/font.ttf');
+}

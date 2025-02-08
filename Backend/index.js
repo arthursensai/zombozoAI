@@ -8,6 +8,10 @@ const { addUser } = require('./mongodb');
 const { mongoose } = require('mongoose');
 const { getTeacherResponse } = require('./huggingFace');
 
+//socket
+const server = require('http').Server(app);
+const ws = require('socket.io')(server)
+
 //load .env 
 require('dotenv').config();
 const PORT = process.env.PORT || 5000;
