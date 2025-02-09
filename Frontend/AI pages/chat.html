@@ -3,29 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Chat with zombozoAI - Your AI Assistant">
     <title>Talk with Zombozo</title>
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <header>
-        <h1>zombozoAI</h1>
-        <nav>
-            <a href="#">Home</a>
-            <img src='https://i.pinimg.com/736x/21/b5/4d/21b54d460427e62cebbcd437a1090d1d.jpg' alt="profile picture" class="pfp">
-        </nav>
+        <div class="header-content">
+            <h1>zombozoAI</h1>
+            
+            <!-- Mobile menu button -->
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+    
+            <nav class="nav-menu">
+                <div class="nav-links">
+                    <a href="#chat-section">Chat</a>
+                    <a href="#footer">Contact</a>
+                </div>
+                <img src='https://i.pinimg.com/736x/21/b5/4d/21b54d460427e62cebbcd437a1090d1d.jpg' alt="profile picture" class="pfp">
+            </nav>
+        </div>
     </header>
-    <main>
-        <form class="chat">
-            <div class="conversation"></div>
+
+    <main id="chat-section">
+        <form class="chat" id="chat">
+            <div class="conversation" id="conversation">
+                <div class="welcome-message">
+                    <h2>Welcome to zombozoAI!</h2>
+                    <p>I'm here to help you with anything you need. Feel free to start a conversation!</p>
+                </div>
+            </div>
             <div class="chat-input">
-                <input class="text-input" placeholder="Enter ur message here">
+                <input class="text-input" 
+                       placeholder="Enter your message here..." 
+                       id="user_input"
+                       aria-label="Chat input">
                 <div class="chat-methods">
-                    <i class="fa-solid fa-microphone"></i>
-                    <i class="fa-solid fa-paper-plane"></i>
+                    <i class="fa-solid fa-microphone" title="Voice input (coming soon)"></i>
+                    <button type="submit" title="Send message">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
                 </div>
             </div>
         </form>
     </main>
+
+    <footer id="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About zombozoAI</h3>
+                <p>Your friendly AI assistant, here to help with your questions and tasks.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <div class="contact-links">
+                    <a href="mailto:contact@zombozo.ai" class="footer-link">
+                        <i class="fa-solid fa-envelope"></i> Email
+                    </a>
+                    <a href="https://twitter.com/zombozoAI" class="footer-link">
+                        <i class="fa-brands fa-instagram"></i> Instagram
+                    </a>
+                    <a href="https://github.com/zombozoAI" class="footer-link">
+                        <i class="fa-brands fa-github"></i> GitHub
+                    </a>
+                </div>
+            </div>
+
+            <!--<div class="footer-section">
+                <h3>Quick Links</h3>
+                <nav class="footer-nav">
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                    <a href="#" class="footer-link">Terms of Service</a>
+                    <a href="#" class="footer-link">FAQ</a>
+                </nav>
+            </div>-->
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 zombozoAI. All rights reserved.</p>
+            <div class="theme-toggle">
+                <i class="fa-solid fa-moon"></i>
+                <span>Dark Mode</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="chat.js"></script>
 </body>
 </html>
