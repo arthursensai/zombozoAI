@@ -56,6 +56,12 @@ header h1 {
     color: var(--text-color);
 }
 
+header > nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
 header > nav > a {
     text-decoration: none;
     font-size: 20px;
@@ -84,6 +90,16 @@ header > nav > a:hover::after {
     width: 100%;
 }
 
+header > * {
+    width: 50%;
+}
+
+.pfp {
+    width: 15%;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 1);
+    border-radius: 100%;
+}
+
 main {
     height: 100vh;
     display: flex;
@@ -91,10 +107,85 @@ main {
     justify-content: center;
 }
 
-.face {
+.chat {
     width: 60%;
-    height: 60%;
+    height: 90%;
+    border-radius: var(--border-radius);
     background-color: var(--card-background-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 1%;
+    gap: 10px;
+}
+
+.conversation {
+    width: 80%;
+    height: 90%;
+    background-color: var(--muted-text-color);
+    border-radius: 15px;
+}
+
+.chat-input {
+    background-color: var(--muted-text-color);
+    width: 80%;
+    height: 10%;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+}
+
+.text-input {    
+    height: 100%;
+    width: 80%;
+    border-radius: 15px 0px 0px 15px;
+    border: none;
+    box-sizing: border-box;
+    padding: 1%;
+    font-size: large;
+}
+
+.text-input:focus {
+    outline: none;
+}
+
+.chat-methods {
+    width: 20%;
+    font-size: 24px;
+    width: 20%;
+    height: 100%;
+    box-sizing: border-box;
+    background-color: var(--text-color);
+    padding: 1%;
+    background-color: var(--text-color);
+    border-radius: 0px 15px 15px 0px;
+    border-left: 3px black solid;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.chat-methods > i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    width: 40px;
+    height: 40px;
+    background-color: var(--text-color);
+    border-radius: 100%;
+    padding: 1.5%;
+    transition: 0.3s all linear;
+    cursor: pointer;
+    box-shadow: var(--box-shadow);
+}
+
+.chat-methods > i:hover {
+    --box-shadow: 0 0px 8px rgba(0, 0, 0, 0.8); /* Basic shadow effect */
+    scale: 1.1;
+    box-shadow: var(--box-shadow);
+    border: none;
 }
 
 /* font */
@@ -102,4 +193,13 @@ main {
 @font-face {
     font-family: robots;
     src: url('../assets/font.ttf');
+}
+
+@media (max-width: 100px) {
+    .text-input {
+        width: 60%;
+    }
+    .chat-methods {
+        width: 40%;
+    }
 }
